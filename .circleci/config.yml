@@ -7,10 +7,10 @@ jobs:
       - checkout
       - run:
           name: Create .env
-          command: cat << EOF >> .env\UID=$(id -u)\GID=$(id -g)\EOF
+          command: cat << EOF >> .env
       - run:
           name: check .env
-          command: cat .env
+          command: ls
       - run:
           name: Build Docker Image
           command: docker-compose build

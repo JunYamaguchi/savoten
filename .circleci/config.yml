@@ -13,9 +13,6 @@ jobs:
             GID=$(id -g)
             EOF
       - run:
-          name: check .env
-          command: ls -la
-      - run:
           name: Build Docker Image
           command: docker-compose build
       - run:

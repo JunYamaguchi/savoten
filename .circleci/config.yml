@@ -8,6 +8,7 @@ jobs:
       - run:
           name: Create .env
           command: cat << EOF >> .env\UID=$(id -u)\GID=$(id -g)\EOF
+          command: cat .env
       - run:
           name: Build Docker Image
           command: docker-compose build

@@ -19,5 +19,8 @@ jobs:
           name: Build Docker Image
           command: docker-compose build
       - run:
+          name: check containar
+          command: docker ps -a
+      - run:
           name: Run tests
           command: docker-compose exec app pipenv run scripts/run_tests

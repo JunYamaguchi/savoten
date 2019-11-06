@@ -18,7 +18,7 @@ jobs:
           name: Docker-compose Up
           command: docker-compose up -d
       - run:
-           name: check docker images
+          name: check docker images
           command: docker ps -a
       - run:
           name: Run tests

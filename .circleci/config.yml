@@ -9,8 +9,7 @@ executors:
     working_directory: ~/working_dir
 jobs:
   setup:
-    executor:
-      name: app
+    executor: app
     steps:
       - run:
         name: Install pipenv

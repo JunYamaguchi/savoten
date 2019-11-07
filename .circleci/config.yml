@@ -7,7 +7,6 @@ executers:
       PYTHONPATH: /app/savoten/
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/working_dir
-
 jobs:
   setup:
     executer:

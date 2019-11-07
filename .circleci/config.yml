@@ -8,7 +8,7 @@ executors:
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/working_dir
 jobs:
-  setup:
+  build:
     executor: app
     steps:
       - run:
@@ -17,10 +17,6 @@ jobs:
               pip install --upgrade pip && \
               pip install pipenv
               pipenv install -d --skip-lock
-  test:
-    executor:
-      name: app
-    steps:
       - checkout
       - run:
           name: Run test

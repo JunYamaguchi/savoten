@@ -24,6 +24,6 @@ jobs:
       name: app
     steps:
       - checkout
-      - run
+      - run:
         name: Run test
         command: pipenv run scripts/run_tests

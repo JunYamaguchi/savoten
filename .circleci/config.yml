@@ -1,26 +1,31 @@
-version: 2
-jobs:
-  build:
-    machine: true
-    steps:
-      - checkout
-      - run:
-          name: Create .env
-          command: |
-            cat << EOF >> .env
-            UID=$(id -u)
-            GID=$(id -g)
-            EOF
-      - run:
-          name: Build Docker Image
-          command: docker-compose build
-      - run:
-          name: Docker-compose Up
-          command: docker-compose up -d
-      - run:
-          name: check docker images
-          command: docker ps -a
-      - run:
-          name: Run tests
-          command: docker-compose exec app pipenv run scripts/run_tests
+version: 2.1
+executers:
+  app:
+    docker:
+      - image: python:3.7.4-stretch
+    enviroment:
+      PYTHONPATH: /app/savoten/
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
+    working_directory: ~/working_dir
 
+jobs:
+  setup:
+    executer:
+      name: app
+    steps:
+      - run:
+        name: Install pipenv
+        command:|
+          pip install --upgrade pip && \
+          pip install pipenv
+          pipenv install -d --skip-lock
+
+  test:
+    executer:
+      name: app
+    steps:
+      checkout
+      - run
+        name: run test
+        command:
+          pipenv run scripts/run_tests

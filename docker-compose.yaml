@@ -11,6 +11,3 @@ services:
     env_file: .env
     user: ${UID}:${GID}
     command: tail -f /dev/null
-  mysql:
-    restart: always
-    image: mysql

@@ -20,4 +20,6 @@ jobs:
               pipenv install -d --skip-lock
       - run:
           name: Run test
-          command: pipenv run scripts/run_tests
+          command: |
+              pwd
+              pipenv run scripts/run_tests

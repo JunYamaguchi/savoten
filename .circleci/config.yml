@@ -9,7 +9,7 @@ executors:
     working_directory: ~/working_dir
 jobs:
   setup:
-    executo_r:
+    executor:
       name: app
     steps:
       - run:

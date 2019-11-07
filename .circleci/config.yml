@@ -4,7 +4,7 @@ executors:
     docker:
       - image: python:3.7.4-stretch
     environment:
-      PYTHONPATH: /app/savoten/
+      PYTHONPATH: ~/savoten/
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/savoten
 jobs:

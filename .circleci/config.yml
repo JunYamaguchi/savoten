@@ -1,5 +1,5 @@
 version: 2.1
-executers:
+executors:
   app:
     docker:
       - image: python:3.7.4-stretch
@@ -9,7 +9,7 @@ executers:
     working_directory: ~/working_dir
 jobs:
   setup:
-    executer:
+    executo_r:
       name: app
     steps:
       - run:
@@ -19,7 +19,7 @@ jobs:
           pip install pipenv
           pipenv install -d --skip-lock
   test:
-    executer:
+    executor:
       name: app
     steps:
       - checkout

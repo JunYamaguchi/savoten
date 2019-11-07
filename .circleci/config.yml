@@ -15,11 +15,10 @@ jobs:
     steps:
       - run:
         name: Install pipenv
-        command:|
+        command: |
           pip install --upgrade pip && \
           pip install pipenv
           pipenv install -d --skip-lock
-
   test:
     executer:
       name: app

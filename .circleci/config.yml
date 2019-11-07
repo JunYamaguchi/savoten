@@ -23,8 +23,7 @@ jobs:
     executer:
       name: app
     steps:
-      checkout
+      - checkout
       - run
-        name: run test
-        command:
-          pipenv run scripts/run_tests
+        name: Run test
+        command: pipenv run scripts/run_tests

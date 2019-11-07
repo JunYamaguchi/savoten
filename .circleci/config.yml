@@ -20,4 +20,4 @@ jobs:
               pipenv install -d --skip-lock
       - run:
           name: Run test
-          command: pipenv run scripts/run_tests
+          command: PYTHONPATH=./ pipenv run scripts/run_tests

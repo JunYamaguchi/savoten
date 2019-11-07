@@ -7,22 +7,3 @@ executors:
       PYTHONPATH: /app/savoten/
       TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/working_dir
-jobs:
-  setup:
-    executor:
-      name: app
-    steps:
-      - run:
-        name: Install pipenv
-        command: |
-          pip install --upgrade pip && \
-          pip install pipenv
-          pipenv install -d --skip-lock
-  test:
-    executor:
-      name: app
-    steps:
-      - checkout
-      - run:
-        name: Run test
-        command: pipenv run scripts/run_tests

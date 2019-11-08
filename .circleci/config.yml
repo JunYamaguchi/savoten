@@ -1,15 +1,12 @@
-version: 2.1
-executors:
-  app:
+version: 2
+jobs:
+  build:
     docker:
       - image: python:3.7.4-stretch
     environment:
-      PYTHONPATH: ~/savoten
+      PYTHONPATH: /root/savoten
       TZ: /usr/share/zoneinfo/Asia/Tokyo
-    working_directory: ~/savoten
-jobs:
-  build:
-    executor: app
+    working_directory: /root/savoten
     steps:
       - checkout
       - run:
@@ -20,6 +17,4 @@ jobs:
               pipenv install -d --skip-lock
       - run:
           name: Run test
-          command: |
-              pwd
-              pipenv run scripts/run_tests
+          command: pipenv run scripts/run_tests

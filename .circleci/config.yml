@@ -18,3 +18,4 @@ jobs:
       - run:
           name: Run test
           command: pipenv run scripts/run_tests
+
